@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-lg-3 imagediv" *ngFor="let item of Productlist">
+      <img (click)="Getproductslide(item.code)" class="img-responsive img-thumbnail imgclass" src="{{item.productImage}}">
+      <span>{{item.name}} <br><b>{{item.amount | currency:'INR'}}</b></span>
+
+    </div>
+
+  </div>
+  <ng-template #content let-modal>
+  
+  <div class="modal-body">
+    <form>
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let item of Imagelist">
+          <div class="picsum-img-wrapper">
+            <img [src]="item.productImage" class="popupclass" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{item.name}}</h3>
+            <p>{{item.amount | currency:'INR'}}</p>
+          </div>
+        </ng-template>
+        
+        
+      </ngb-carousel>
+      
+    </form>
+  </div>
+  
+</ng-template>

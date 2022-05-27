@@ -13,4 +13,14 @@ export class MasterService {
   GetProductbycode(code:any){
     return this.http.get("https://localhost:44308/api/Product/GetProductwithimagebycode/"+code);
   }
+  UploadImage(inpudata:any){
+    return this.http.post("https://localhost:44308/api/Product/UploadImage",inpudata,{
+      reportProgress:true,
+      observe:'events'
+    });
+  }
+  RemoveImage(code:any){
+    return this.http.get("https://localhost:44308/api/Product/RemoveImage/"+code);
+  }
+  
 }
